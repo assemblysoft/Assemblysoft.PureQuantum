@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<ArrayOfDevOpsTask xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DevOpsTask>
+    <Status>Idle</Status>
+    <Id>510E9EE3-2A45-470A-9626-A20EDF566F55</Id>    
+    <Assembly>AssemblySoft.DevOps.Task.Example.dll</Assembly>
+    <Namespace>AssemblySoft.DevOps.Task.Example.DelayTask</Namespace>
+    <Method>GoToSleepForTenSeconds</Method>
+    <Enabled>false</Enabled>
+    <Order>0</Order>
+    <Description>Analyzing System...</Description>
+  </DevOpsTask>
+  <DevOpsTask>
+    <Status>Idle</Status>
+    <Id>F47491D6-DD70-4509-BC0E-C881A3AF1E98</Id>
+    <Assembly>Setup.ComScire.dll</Assembly>
+    <Namespace>Setup.ComScire.ActiveXTasks</Namespace>
+    <Method>SetEnvVars</Method>
+    <Enabled>true</Enabled>
+    <Order>1</Order>
+    <Description>Setting Environment Variables</Description>
+  </DevOpsTask>
+  <DevOpsTask>
+    <Status>Idle</Status>
+    <Id>F37491D6-DD70-4509-BC0E-C881A3AF1E98</Id>
+    <Assembly>Setup.ComScire.dll</Assembly>
+    <Namespace>Setup.ComScire.ActiveXTasks</Namespace>
+    <Method>Copy64BitDllEnv</Method>
+    <Enabled>true</Enabled>
+    <Order>2</Order>
+    <Description>Copying 64bit ActiveX</Description>
+  </DevOpsTask>
+  <DevOpsTask>
+    <Status>Idle</Status>
+    <Id>F27491D6-DD70-4509-BC0E-C881A3AF1E98</Id>
+    <Assembly>Setup.ComScire.dll</Assembly>
+    <Namespace>Setup.ComScire.ActiveXTasks</Namespace>
+    <Method>Copy32BitDllEnv</Method>
+    <Enabled>true</Enabled>
+    <Order>2</Order>
+    <Description>Copying 32bit ActiveX</Description>
+  </DevOpsTask>
+  <DevOpsTask>
+    <Status>Idle</Status>
+    <Id>F30491D6-DD70-4509-BC0E-C881A3AF1E98</Id>
+    <Assembly>Setup.ComScire.dll</Assembly>
+    <Namespace>Setup.ComScire.ActiveXTasks</Namespace>
+    <Method>Copy32BitFTDIDllEnv</Method>
+    <Enabled>true</Enabled>
+    <Order>3</Order>
+    <Description>Copying 32bit Dependency</Description>
+  </DevOpsTask>
+  <DevOpsTask>
+    <Status>Idle</Status>
+    <Id>F31491D6-DD70-4509-BC0E-C881A3AF1E98</Id>
+    <Assembly>Setup.ComScire.dll</Assembly>
+    <Namespace>Setup.ComScire.ActiveXTasks</Namespace>
+    <Method>Copy64BitFTDIDllEnv</Method>
+    <Enabled>true</Enabled>
+    <Order>3</Order>
+    <Description>Copying 64bit Dependency</Description>
+  </DevOpsTask>
+  <DevOpsTask>
+    <Status>Idle</Status>
+    <Id>F32491D6-DD70-4509-BC0E-C881A3AF1E98</Id>
+    <Assembly>Setup.ComScire.dll</Assembly>
+    <Namespace>Setup.ComScire.ActiveXTasks</Namespace>
+    <Method>Register64BitDll</Method>
+    <Enabled>true</Enabled>
+    <Order>4</Order>
+    <Description>Registering 64bit ActiveX</Description>
+  </DevOpsTask>
+  <DevOpsTask>
+    <Status>Idle</Status>
+    <Id>F33491D6-DD70-4509-BC0E-C881A3AF1E98</Id>
+    <Assembly>Setup.ComScire.dll</Assembly>
+    <Namespace>Setup.ComScire.ActiveXTasks</Namespace>
+    <Method>Register32BitDll</Method>
+    <Enabled>true</Enabled>
+    <Order>5</Order>
+    <Description>Registering 32bit ActiveX</Description>
+  </DevOpsTask>
+  <DevOpsTask>
+    <Status>Idle</Status>
+    <Id>F37491D6-DD70-4509-BC0E-C881A3AF1E98</Id>
+    <Assembly>Setup.ComScire.dll</Assembly>
+    <Namespace>Setup.ComScire.ActiveXTasks</Namespace>
+    <Method>Copy64BitDll</Method>
+    <Enabled>false</Enabled>
+    <Order>2</Order>
+    <Description>Copying 64bit ActiveX</Description>
+  </DevOpsTask>
+  <DevOpsTask>
+    <Status>Idle</Status>
+    <Id>F27491D6-DD70-4509-BC0E-C881A3AF1E98</Id>
+    <Assembly>Setup.ComScire.dll</Assembly>
+    <Namespace>Setup.ComScire.ActiveXTasks</Namespace>
+    <Method>Copy32BitDll</Method>
+    <Enabled>false</Enabled>
+    <Order>3</Order>
+    <Description>Copying 32bit ActiveX</Description>
+  </DevOpsTask>
+</ArrayOfDevOpsTask>
