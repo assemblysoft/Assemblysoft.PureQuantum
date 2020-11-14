@@ -258,7 +258,7 @@ namespace PureQuantamWinFormsApp
             //Matrix<int>.PrintMatrix(mermArray);
 
             listView1.Clear();
-            var mutuallyExlusiveMatrix = new Matrix<int>(10, 50, Matrix<int>.MutuallyExclusive.Rows);
+            var mutuallyExlusiveMatrix = new Matrix<int>(Convert.ToInt32(numericUpDownColumns.Value),Convert.ToInt32(numericUpDownRows.Value), Matrix<int>.MutuallyExclusive.Rows);
             mutuallyExlusiveMatrix.CreateRows(new Func<int>(() => GenerateQngRand()));
             int[,] mermArray = mutuallyExlusiveMatrix.GenerateMatrix();
             Matrix<int>.PrintMatrix(mermArray);
