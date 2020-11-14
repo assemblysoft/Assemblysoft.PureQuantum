@@ -5,36 +5,38 @@ using System.ComponentModel.Design;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PureQuantamWinFormsApp
 {
-    public partial class Form1 : Form
+    public partial class DashboardForm : Form
     {
         QWQNG.QNG qng = new QWQNG.QNG();
-        private System.ComponentModel.Design.ByteViewer byteviewer;
+        private ByteViewer byteviewer;
 
-        public Form1()
+        public DashboardForm()
         {
             InitializeComponent();
 
             // Initialize the ByteViewer.
-            byteviewer = new ByteViewer();
-            byteviewer.Location = new Point(200, 350);
-            byteviewer.Size = new Size(300, 300);
-            byteviewer.Anchor = AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Top;
+            byteviewer = new ByteViewer
+            {
+                Location = new Point(200, 350),
+                Size = new Size(300, 300),
+                Anchor = AnchorStyles.Left | AnchorStyles.Bottom | AnchorStyles.Top
+            };
+
             byteviewer.SetBytes(new byte[] { });
             this.Controls.Add(byteviewer);
-
         }
+
 
         private void btnShowDeviceId_Click(object sender, EventArgs e)
         {
             try
-            {               
+            {
 
                 string deviceId = qng.DeviceId;
 
@@ -47,7 +49,7 @@ namespace PureQuantamWinFormsApp
 
                 textBoxDeviceId.Text = deviceId;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Trace.TraceError("An error has occured: {0}", ex.Message);
             }
@@ -56,7 +58,7 @@ namespace PureQuantamWinFormsApp
         private void btnRandInt32_Click(object sender, EventArgs e)
         {
             try
-            {               
+            {
 
                 int rand32 = qng.RandInt32;
 
@@ -80,7 +82,7 @@ namespace PureQuantamWinFormsApp
                 Trace.TraceError("An error has occured: {0}", ex.Message);
             }
 
-            
+
         }
 
         // Clear the bytes in the byte viewer.
@@ -132,7 +134,7 @@ namespace PureQuantamWinFormsApp
         private void btnRandUniform_Click(object sender, EventArgs e)
         {
             try
-            {              
+            {
 
                 double randuniform = qng.RandUniform;
 
@@ -161,7 +163,7 @@ namespace PureQuantamWinFormsApp
         {
             try
             {
-               
+
                 double randNormal = qng.RandNormal;
 
                 var message = string.Empty;
@@ -189,13 +191,11 @@ namespace PureQuantamWinFormsApp
         {
             byte[] randbytes = (byte[])qng.get_RandBytes(10);
             byteviewer.SetBytes(randbytes);
-                        
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
             qng.Reset();
-            
         }
 
         private void btnRuntimeInfo_Click(object sender, EventArgs e)
@@ -227,9 +227,57 @@ namespace PureQuantamWinFormsApp
             //foreach (byte b in dxData)
             //    Console.Write("{0:X} ", b);
             //Console.WriteLine();
+        }
+
+        Random rand = new Random(555);
+        private int GenerateNumber()
+        {
+            return rand.Next(1, 25);
+        }
+
+        private void TestMatrixPopulate()
+        {
+            var mutuallyExlusiveMatrix = new Matrix<int>(5, 5, Matrix<int>.MutuallyExclusive.Rows);
+            mutuallyExlusiveMatrix.CreateRows(new Func<int>(() => GenerateNumber()));            
+            int[,] mermArray = mutuallyExlusiveMatrix.GenerateMatrix();
+            Matrix<int>.PrintMatrix(mermArray);
 
 
+            Matrix<int> matrix = new Matrix<int>(2, 5);
 
+            for (int row = 0; row < 2; row++)
+            {
+                List<int> listRow = new List<int>();
+                for (int column = 0; column < 5; column++)
+                {
+                    listRow.Add(column + 1);
+                }
+
+                matrix.AddRow(listRow);
+            }
+
+            int[,] arrayRect = matrix.GenerateMatrix();
+            Matrix<int>.PrintMatrix(arrayRect);
+
+
+            List<int[]> list = new List<int[]>
+            {
+            new[] { 1, 2, 3, 4, 5 },
+            new[] { 6, 7, 8, 9, 10 },
+            new[] { 11, 12, 6, 1, 2 },
+            new[] { 3, 5, 6, 1, 4 },
+            new[] { 4, 5, 6, 7, 2 },
+            };
+
+            int[,] arraySq = Matrix<int>.GenerateMatrix(list);
+            Matrix<int>.PrintMatrix(arraySq);
+        }
+
+        
+
+        private void btnTestMatrix_Click(object sender, EventArgs e)
+        {
+            TestMatrixPopulate();
         }
     }
 }

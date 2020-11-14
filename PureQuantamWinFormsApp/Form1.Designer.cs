@@ -1,6 +1,6 @@
 ﻿namespace PureQuantamWinFormsApp
 {
-    partial class Form1
+    partial class DashboardForm
     {
         /// <summary>
         /// Required designer variable.
@@ -41,6 +41,7 @@
             this.btnRuntimeInfo = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDiagnostics = new System.Windows.Forms.Button();
+            this.btnTestMatrix = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBoxDeviceId
@@ -162,11 +163,22 @@
             this.btnDiagnostics.UseVisualStyleBackColor = true;
             this.btnDiagnostics.Click += new System.EventHandler(this.btnDiagnostics_Click);
             // 
-            // Form1
+            // btnTestMatrix
+            // 
+            this.btnTestMatrix.Location = new System.Drawing.Point(341, 366);
+            this.btnTestMatrix.Name = "btnTestMatrix";
+            this.btnTestMatrix.Size = new System.Drawing.Size(157, 46);
+            this.btnTestMatrix.TabIndex = 13;
+            this.btnTestMatrix.Text = "Test Generate Matrix";
+            this.btnTestMatrix.UseVisualStyleBackColor = true;
+            this.btnTestMatrix.Click += new System.EventHandler(this.btnTestMatrix_Click);
+            // 
+            // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(966, 655);
+            this.Controls.Add(this.btnTestMatrix);
             this.Controls.Add(this.btnDiagnostics);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnRuntimeInfo);
@@ -180,7 +192,7 @@
             this.Controls.Add(this.textRand32);
             this.Controls.Add(this.btnShowDeviceId);
             this.Controls.Add(this.textBoxDeviceId);
-            this.Name = "Form1";
+            this.Name = "DashboardForm";
             this.Text = "Comscire Dashboard";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -202,6 +214,7 @@
         private System.Windows.Forms.Button btnRuntimeInfo;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnDiagnostics;
+        private System.Windows.Forms.Button btnTestMatrix;
     }
 }
 
