@@ -59,7 +59,7 @@ namespace PureQuantamWinFormsApp
         {
             try
             {
-
+                
                 int rand32 = qng.RandInt32;
 
                 var message = string.Empty;
@@ -235,13 +235,48 @@ namespace PureQuantamWinFormsApp
             return rand.Next(1, 25);
         }
 
+        private int GenerateQngRand()
+        {
+            int randNormal;
+
+            while (true)
+            {
+                randNormal = qng.RandInt32;
+                
+                if(randNormal > 0)
+                    break;            
+            }
+            
+            return randNormal;            
+        }
+
         private void TestMatrixPopulate()
         {
-            var mutuallyExlusiveMatrix = new Matrix<int>(5, 5, Matrix<int>.MutuallyExclusive.Rows);
-            mutuallyExlusiveMatrix.CreateRows(new Func<int>(() => GenerateNumber()));            
+            //var mutuallyExlusiveMatrix = new Matrix<int>(5, 5, Matrix<int>.MutuallyExclusive.Rows);
+            //mutuallyExlusiveMatrix.CreateRows(new Func<int>(() => GenerateNumber()));            
+            //int[,] mermArray = mutuallyExlusiveMatrix.GenerateMatrix();
+            //Matrix<int>.PrintMatrix(mermArray);
+
+            listView1.Clear();
+            var mutuallyExlusiveMatrix = new Matrix<int>(10, 50, Matrix<int>.MutuallyExclusive.Rows);
+            mutuallyExlusiveMatrix.CreateRows(new Func<int>(() => GenerateQngRand()));
             int[,] mermArray = mutuallyExlusiveMatrix.GenerateMatrix();
             Matrix<int>.PrintMatrix(mermArray);
+            for(int row=0; row<mutuallyExlusiveMatrix.Rows; row++)                
+            {
+                StringBuilder s = new StringBuilder();
+                s.AppendFormat("{0}", row);
+                var mermRow = mutuallyExlusiveMatrix.GetRow(mermArray, row);
 
+                listView1.Items.Add(new ListViewItem(s.ToString()));
+
+                foreach (int x in mermRow)
+                {
+                    listView1.Items.Add(new ListViewItem(x.ToString()));
+                }                
+
+            }            
+            listView1.View = View.List;
 
             Matrix<int> matrix = new Matrix<int>(2, 5);
 
